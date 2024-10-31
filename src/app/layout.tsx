@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,12 +25,49 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
+
   );
 }
+
+// we have to migrate primsa or drizzle to db 1st after writing schema
+// so it setup out tabeles and schema in database
+// we interact with client of primsa and it automatic write sql queries
+
+// 1st we setup prisma 
+// we make schema
+// we migrate schema into db
+// we install client side of primsa
+
+
+// todo: understand and run the code
+// todo: add some more functionality
+
+
+// what is clerk 
+// what are webhooks
+// what is event driven architecture
+// what is svix
+// what is local tunneling
+// why we not made app by normal
+// why value clerk adds
+// what type of application we need to amde by clerk
+// clerk said they all manage auth and user roles
+
+
+// todo: research on useHook-ts
+// todo: research on primsa postgresql
+// todo: learn drizzle and make this code also functional with drizzle
+
+// prisma schema
+// utils
+// backend logic 
+// frontend logic
